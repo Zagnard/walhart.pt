@@ -1,6 +1,6 @@
 <ul>
     <li>
-        <a href="">
+        <a href="{{ route('wl.index') }}">
             Home
         </a>
     </li>
@@ -20,7 +20,7 @@
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="{{ route('wl.faq') }}">
             F.A.Q.
         </a>
     </li>

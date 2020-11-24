@@ -14,4 +14,5 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get("/", [PageController::class, "index"])->name("index");
+Route::get("/", [PageController::class, "index"])->name("wl.index");
+Route::get("/faq", [PageController::class, "faq"])->name("wl.faq");
