@@ -1,7 +1,7 @@
 @extends("layout.layout")
 @section('title', 'login')
 @section('content')
-<p>sfdsagfda</p>
+<p>sfdsagfd  a</p>
     <div class="container">
         <form action="" method="POST">
             <!-- Introdução dos dados do utilizador -->
