@@ -1,9 +1,9 @@
-@extends("")
-@section("", "")
-@section('')
+@extends("layout.layout")
+@section('title', 'login')
+@section('content')
     <div class="container">
         <form action="" method="POST">
-            <!-- Intorodução dos dados do utilizador -->
+            <!-- Introdução dos dados do utilizador -->
             <div class="row">
                 <!-- introdução de nome de utilizador -->
                 <div class="col-md-6">

@@ -25,12 +25,12 @@
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="{{ route('wl.registo') }}">
             Registo
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="{{ route('wl.login') }}">
             Login
         </a>
     </li>

@@ -16,3 +16,5 @@ use App\Http\Controllers\PageController;
 
 Route::get("/", [PageController::class, "index"])->name("wl.index");
 Route::get("/faq", [PageController::class, "faq"])->name("wl.faq");
+Route::get("/login", [PageController::class, "login"])->name("wl.login");
+Route::get("/registo", [PageController::class, "registo"])->name("wl.registo");

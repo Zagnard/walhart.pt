@@ -1,6 +1,6 @@
-@extends("")
-@section("", "")
-@section('')
+@extends("layout.layout")
+@section('title', 'registo')
+@section('content')
 <div class="container">
         <form action="" method="POST">
             <!-- Dados pessoais linha 1 -->
