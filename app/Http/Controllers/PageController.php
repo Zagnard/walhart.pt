@@ -25,4 +25,14 @@ class PageController extends Controller
     public function registo() {
         return view("registo")->with("menuOption", "registo");
     }
+
+    // Método para a página de perfil de utilizador
+    public function perfil_de_utilizador() {
+        return view("perfil_de_utilizador")->with("menuOption", "perfil_de_utilizador");
+    }
+
+    // Método para a página de edição de dados pessoais de utilizador
+    public function front_user_edit() {
+        return view("front_user_edit")->with("menuOption", "front_user_edit");
+    }
 }

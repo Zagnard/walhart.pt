@@ -35,8 +35,13 @@
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="{{ route('wl.perfil_de_utilizador') }}"">
             Perfil de utilizador
+        </a>
+    </li>
+    <li>
+        <a href="{{ route('wl.front_user_edit') }}">
+            Edição de dados pessoais
         </a>
     </li>
 </ul>
