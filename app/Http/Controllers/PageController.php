@@ -35,4 +35,5 @@ class PageController extends Controller
     public function front_user_edit() {
         return view("front_user_edit")->with("menuOption", "front_user_edit");
     }
+
 }

@@ -1,0 +1,161 @@
+h1 {
+    margin: 0 0 0 0;
+}
+
+.Menu {
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+}
+
+.footer {
+    background-color: red;
+    height: 75px;
+    width: 100%;
+}
+
+.imagem {
+    background-image:url(../imagens/microfone.jpg);
+    width: 100%;
+    height: 100vh;
+}
+
+/* seta para baixo */
+.espacoemcima {
+    height: 85vh;
+}
+
+.botaoparabaixo {
+    display: inline-block;
+    vertical-align: middle;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.botaoparabaixo.div {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.botaoparabaixo.div.a {
+    display: inline-block;
+    border-radius: 50%;
+}
+
+a:hover .capabottom {
+    border: 0.5em solid blue;
+}
+
+a:hover .capabottom:after {
+    border-top: 0.5em solid blue;
+    border-right: 0.5em solid blue;
+}
+
+.capabottom {
+    display: inline-block;
+    width: 4em;
+    height: 4em;
+    border: 0.5em solid red;
+    border-radius: 50%;
+    margin-left: 49vw;
+}
+
+.capabottom:after {
+    content: '';
+    display: inline-block;
+    margin-top: 0.6em;
+    width: 1.4em;
+    height: 1.4em;
+    border-top: 0.5em solid red;
+    border-right: 0.5em solid red;
+    -webkit-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    transform: rotate(135deg);
+    margin: 8px 0px 0px 12px;
+}
+
+/* imagens arredondada */
+
+.circle {
+    background-color: #aaa;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+
+.circle img {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
+}
+
+.h3bolas {
+    margin-top: 10px;
+}
+
+.textoconteudo {
+    width: 100%;
+    height: auto;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.titulo2 {
+    text-align: right;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.titulo1 {
+    margin-top: 15px;
+    margin-bottom: 15px ;
+}
+
+.conteudo2 {
+    margin-top: 15px;
+}
+
+/* botao para topo */
+
+a[href="#top"]{
+    padding:10px;
+    position:fixed;
+    top: 80%;
+    right:40px;
+    display:none;
+    font-size: 30px;
+}
+a[href="#top"]:hover{
+    text-decoration:none;
+}
+
+
+.imgtop {
+    width: 60px;
+    height: auto;
+}
+
+
+
+/**
+*** Seta para CIMA
+
+.seta-cima:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 0; 
+    height: 0; 
+  
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 15px solid black;
+  }´
+
+  **/

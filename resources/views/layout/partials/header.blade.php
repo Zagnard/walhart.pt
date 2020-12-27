@@ -1,3 +1,4 @@
+<div class="menu">
 <ul>
     <li>
         <a href="{{ route('wl.index') }}">
@@ -45,3 +46,4 @@
         </a>
     </li>
 </ul>
+</div>
