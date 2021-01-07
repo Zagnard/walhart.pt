@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\FaqController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use App\Http\Controllers\PageController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Rota resourceful para as diferentes tabelas
+Route::resource('faq', FaqController::class);
+
 
 Route::get("/", [PageController::class, "index"])->name("wl.index");
 Route::get("/faq", [PageController::class, "faq"])->name("wl.faq");

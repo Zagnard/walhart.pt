@@ -24,7 +24,17 @@
         <a href="{{ route('wl.faq') }}">
             F.A.Q.
         </a>
-    </li>
+		</li>
+		<li>
+			<a href="{{ route("faq.showif") }}">
+				Listar as faq
+			</a>
+		</li>
+		<li>
+			<a href="{{ route("faq.add") }}">
+				Criar nova faq
+			</a>
+		</li>
     <li>
         <a href="{{ route('wl.registo') }}">
             Registo
