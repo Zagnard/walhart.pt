@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    // Método para a página services
+    public function services()
+    {
+        return view("services")->with("menuOption", "services");
+    }
     // Método para a página index
     public function index()
     {

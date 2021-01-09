@@ -6,7 +6,7 @@
         </a>
     </li>
     <li>
-        <a href="">
+        <a href="{{ route('wl.services') }}">
             Serviços
         </a>
     </li>
