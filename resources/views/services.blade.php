@@ -27,14 +27,14 @@
       </div>
     </div>  
       <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 p-0 text-center">
-        <img src="img/masterizacao.jpg" alt="Image" class="img-fluid">
+        <img src="./imagens/2 - Masterização de som.jpg" alt="Image" class="img-fluid">
       </div>
   </section>
 
   <!-- 3rd Section -->
   <section class="row section mb-30">
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 p-0 text-center">
-      <img src="img/masterizacao.jpg" alt="Image" class="img-fluid">
+      <img src="./imagens/3 - Mixagem de som.jpg" alt="Image" class="img-fluid">
     </div>
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="flex-center p-5">
@@ -57,14 +57,14 @@
       </div>
     </div>  
       <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 p-0 text-center">
-        <img src="img/masterizacao.jpg" alt="Image" class="img-fluid">
+        <img src="./imagens/1 - Captação de som.jpg" alt="Image" class="img-fluid">
       </div>
   </section>
 
   <!-- 5th Section -->
   <section class="row section mb-30">
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 p-0 text-center">
-      <img src="img/masterizacao.jpg" alt="Image" class="img-fluid">
+      <img src="./imagens/4 - Beats.png" alt="Image" class="img-fluid">
     </div>
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="flex-center p-5">
