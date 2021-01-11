@@ -1,7 +1,7 @@
 <div class="menu">
 <ul>
     <li>
-        <a href="{{ route('wl.index') }}">
+        <a href="">
             Home
         </a>
     </li>
@@ -21,37 +21,37 @@
         </a>
     </li>
     <li>
-        <a href="{{ route('wl.faq') }}">
+        <a href="">
             F.A.Q.
         </a>
 		</li>
 		<li>
-			<a href="{{ route("faq.showif") }}">
+			<a href="">
 				Listar as faq
 			</a>
 		</li>
 		<li>
-			<a href="{{ route("faq.add") }}">
+			<a href="">
 				Criar nova faq
 			</a>
 		</li>
     <li>
-        <a href="{{ route('wl.registo') }}">
+        <a href="">
             Registo
         </a>
     </li>
     <li>
-        <a href="{{ route('wl.login') }}">
+        <a href="">
             Login
         </a>
     </li>
     <li>
-        <a href="{{ route('wl.perfil_de_utilizador') }}"">
+        <a href="">
             Perfil de utilizador
         </a>
     </li>
     <li>
-        <a href="{{ route('wl.front_user_edit') }}">
+        <a href="">
             Edição de dados pessoais
         </a>
     </li>
