@@ -70,7 +70,7 @@
       <div class="flex-center p-5">
         <div class="md-flex-center">
           <h2 class="text-color-primary mb-4">Criação de Beats</h2>
-          <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non tortor aliquam arcu lacinia molestie eu sodales justo. Mauris et tempus tortor, eu ultrices metus. Nulla augue quam, vestibulum id mi a, tempor condimentum libero. Suspendisse suscipit semper ligula nec iaculis. Morbi a luctus lacus, non cursus nibh.</p>
+          <p class="mb-4">A criação de beats consiste na criação de uma música, juntando os vários instrumentos musicais para criar uma melodia.</p>
         </div>
       </div>
     </div>
