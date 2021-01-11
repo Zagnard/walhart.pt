@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\ServicesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\FaqController;
 
 // Rota resourceful para as diferentes tabelas
 Route::resource('faq', FaqController::class);
+Route::resource('services', ServicesController::class);
 
 
 Route::get("/", [PageController::class, "index"])->name("wl.index");
