@@ -4,12 +4,12 @@
 @section("content")
 <div class="container-fluid">
   <!-- Page Heading -->
-  <h1 class="h3 mb-2 text-gray-800">Categories</h1>
+  <h1 class="h3 mb-2 text-gray-800">Services</h1>
 
   <div class="card shadow mb-4">
     <div class="card-header py-3">
       <a class="btn btn-primary" href="#">
-        <i class="fas fa-plus"></i> Add Category
+        <i class="fas fa-plus"></i> Add Service
       </a>
     </div>
     <div class="card-body">
@@ -19,7 +19,7 @@
             <tr>
               <th>Name</th>
               <th>Description</th>
-              <th>Actions</th>
+              <th>Price</th>
             </tr>
           </thead>
           <tbody>
