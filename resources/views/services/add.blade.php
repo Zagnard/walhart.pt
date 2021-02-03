@@ -11,9 +11,9 @@
 		</div>
 		<div class="card-body">
 
-			<form method="POST" action="#" class="form-group">
+			<form method="POST" action="{{route('services.store')}}" class="form-group">
+				@csrf
 				@include('services.partials.add-edit')
-
 				<div class="form-group">
 					<button type="submit" class="btn btn-success" name="ok">Save</button>
 					<a href="{{route('services.services')}" class="btn btn-default">Cancel</a>
