@@ -17,8 +17,10 @@ use App\Http\Controllers\ServicesController;
 */
 
 // Rota resourceful para as diferentes tabelas
-Route::resource('faq', FaqController::class);
-Route::resource('services', ServicesController::class);
+Route::prefix('admin')->group(function () {
+    Route::resource('faq', FaqController::class);
+    Route::resource('services', ServicesController::class);
+});
 
 
 Route::get("/", [PageController::class, "index"])->name("wl.index");
