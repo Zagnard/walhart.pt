@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
-        <img width="80px" src="./imagens/logo_walhart_pequeno.png">
+        <img width="70px" src="./imagens/logo_walhart_pequeno.png">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,7 +19,7 @@
             <a class="nav-link" href="#">Estúdio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Portfólio</a>
+            <a class="nav-link" href="{{ route('wl.portfolio')  }}">Portfólio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('wl.faq')  }}">F.a.Q.</a>

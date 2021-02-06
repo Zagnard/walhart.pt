@@ -1,17 +1,19 @@
-@extends('layout.layout')
-
-@section('content')
+@extends("layout.layout")
+@section('title', 'Portfolio')
+@section('inicio')
 
 <div class="masthead">
   <div class="container h-100 ">
     <div class="row h-100 align-items-center">
       <div class="col-12 text-center bg-image">
-        <h1 class="font-weight-light">Portfólio</h1>
+        <h1 class="font-weight-bold">Portfólio</h1>
         <p class="lead">Aqui podes encontrar os artistas com quem trabalhamos e os beats feitos pelo nosso produtor</p>
       </div>
     </div>
   </div>
 </div>
+@endsection
+@section('content')
   <div class="container marketing py-5">
 
     <!-- Three columns of text below the carousel -->

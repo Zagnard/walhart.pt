@@ -41,4 +41,9 @@ class PageController extends Controller
         return view("front_user_edit")->with("menuOption", "front_user_edit");
     }
 
+    // Método para a página de portfolio
+    public function portfolio() {
+        return view("portfolio")->with("menuOption", "portfolio");
+    }
+
 }
