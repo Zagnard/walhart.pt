@@ -76,7 +76,7 @@ class ServicesController extends Controller
      */
     public function update(UpdateServicesRequest $request, Services $services)
     {
-        $fields=$request->validatd();
+        $fields=$request->validated();
         $services->fill($fields);
         $services->save();
         return redirect()->route('services.index')->with('success','Serviço atualizado com sucesso');
