@@ -6,7 +6,7 @@
     <h1 class="h3 mb-2 text-gray-800">Categories</h1>
 
 
-    <a href="{{ route('faqs.create') }}">
+    <a href="{{ route('faqs.create') }}">       
         Add Category
 		</a>
 		@if(count($faqs))
