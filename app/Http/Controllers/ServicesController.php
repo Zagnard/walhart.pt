@@ -42,7 +42,7 @@ class ServicesController extends Controller
         $services=new Services();
         $services->fill($fields);
         $services->save();
-        return redirect()->route('services.services')->with('success','Serviço criado com sucesso');
+        return redirect()->route('services.index')->with('success','Serviço criado com sucesso');
     }
 
     /**
@@ -79,7 +79,7 @@ class ServicesController extends Controller
         $fields=$request->validatd();
         $services->fill($fields);
         $services->save();
-        return redirect()->route('services.services')->with('success','Serviço atualizado com sucesso');
+        return redirect()->route('services.index')->with('success','Serviço atualizado com sucesso');
     }
 
     /**
@@ -90,10 +90,10 @@ class ServicesController extends Controller
      */
     public function destroy(Services $services)
     {
-        if($services->services()->exists()){
-            return redirect()->route('services.services')->withErrors(['delete'=>'Existem serviços']);
-        }
+        // if($services->services()->exists()){
+        //     return redirect()->route('services.index')->withErrors(['delete'=>'Existem serviços']);
+        // }
         $services->delete();
-        return redirect()->route('services.services')->with('success','Serviço eliminado com sucesso');
+        return redirect()->route('services.index')->with('success','Serviço eliminado com sucesso');
     }
 }
