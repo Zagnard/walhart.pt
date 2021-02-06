@@ -76,17 +76,12 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosts" aria-expanded="true"
           aria-controls="collapsePosts">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Posts</span>
+          <span>Services</span>
         </a>
         <div id="collapsePosts" class="collapse" aria-labelledby="headingPosts" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Categories:</h6>
             <a class="collapse-item" href="{{route('services.index')}}">List Services</a>
             <a class="collapse-item" href="{{route('services.create')}}">Add Service</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Posts:</h6>
-            <a class="collapse-item" href="#">List Posts</a>
-            <a class="collapse-item" href="#">Add Post</a>
           </div>
         </div>
       </li>
