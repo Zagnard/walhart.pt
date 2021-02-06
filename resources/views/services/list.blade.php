@@ -21,6 +21,7 @@
               <th>Name</th>
               <th>Description</th>
               <th>Price</th>
+              <th>Menu</th>
             </tr>
           </thead>
           <tbody>
@@ -28,6 +29,7 @@
             <tr>
               <td>{{$service->nome}}</td>
               <td>{{$service->descricao}}</td>
+              <td>{{$service->preco}}</td>
               <td nowrap>
                 <a class="btn btn-xs btn-primary btn-p" href="{{route('services.show',$service)}}"><i class="fas fa-eye fa-xs"></i></a>
                 <a class="btn btn-xs btn-warning btn-p" href="{{route('services.edit',$service)}}"><i class="fas fa-pen fa-xs"></i></a>

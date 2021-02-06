@@ -39,7 +39,7 @@
           <i class="fas fa-gamepad"></i>
 
         </div>
-        <div class="sidebar-brand-text mx-3">Games and Multimedia</div>
+        <div class="sidebar-brand-text mx-3">Walhart Studio</div>
       </a>
 
       <!-- Divider -->
