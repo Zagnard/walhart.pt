@@ -94,8 +94,8 @@
         </a>
         <div id="collapsePosts" class="collapse" aria-labelledby="headingPosts" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="{{route('portfolio.index')}}">List Beat</a>
-            <a class="collapse-item" href="{{route('portfolio.create')}}">Add Beat</a>
+            <a class="collapse-item" href="{{route('portfolios.index')}}">List Beat</a>
+            <a class="collapse-item" href="{{route('portfolios.create')}}">Add Beat</a>
           </div>
         </div>
       </li>
