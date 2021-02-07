@@ -12,6 +12,7 @@
 
 			<div><strong>Name:</strong> {{$services->nome}} </div>
 			<div><strong>Description:</strong> {{$services->descricao}} </div>
+			<div><strong>Price:</strong> {{$services->preco}} </div>
 		</div>
 	</div>
 </div>
