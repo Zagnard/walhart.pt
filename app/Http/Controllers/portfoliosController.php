@@ -52,9 +52,9 @@ class portfoliosController extends Controller
      * @param  \App\Models\portfolios  $portfolios
      * @return \Illuminate\Http\Response
      */
-    public function show(portfolios $portfolios)
+    public function show(portfolios $portfolio)
     {
-        //
+        return view('portfolio.show', compact("portfolio"));
     }
 
     /**
@@ -63,9 +63,9 @@ class portfoliosController extends Controller
      * @param  \App\Models\portfolios  $portfolios
      * @return \Illuminate\Http\Response
      */
-    public function edit(portfolios $portfolios)
+    public function edit(portfolios $portfolio)
     {
-        return view('portfolio.edit', compact('portfolios'));
+        return view('portfolio.edit', compact('portfolio'));
     }
 
     /**
@@ -75,11 +75,11 @@ class portfoliosController extends Controller
      * @param  \App\Models\portfolios  $portfolios
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateportfoliosRequest $request, portfolios $portfolios)
+    public function update(UpdateportfoliosRequest $request, portfolios $portfolio)
     {
         $fields = $request->validated();
-        $portfolios->fill($fields);
-        $portfolios->save();
+        $portfolio->fill($fields);
+        $portfolio->save();
         return redirect()->route('portfolios.index')->with(
             'success',
             'Beat foi atulizado com sucesso'
@@ -92,8 +92,14 @@ class portfoliosController extends Controller
      * @param  \App\Models\portfolios  $portfolios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(portfolios $portfolios)
+    public function destroy(portfolios $portfolio)
     {
-        //
+        //if ($portfolio->posts()->exists()) {
+        //    return redirect()->route('portfolios.index')->withErrors(
+        //        ['delete' => 'Categoria tem postagens relacionadas']
+        //    );
+        //}
+        $portfolio->delete();
+        return redirect()->route('portfolios.index')->with('success', 'Category eliminadas com sucesso');
     }
 }

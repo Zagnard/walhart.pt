@@ -6,6 +6,15 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateportfoliosRequest extends FormRequest
 {
+    /**
+     *	Determine if the user is authorized to make this request.
+     *
+     *	@return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
 
     /**
      * Get the validation rules that apply to the request.
@@ -15,7 +24,7 @@ class UpdateportfoliosRequest extends FormRequest
     public function rules()
     {
         return [
-            "nome_beat" => 'required|min:3|max:20|' .$this->portfolios->id . '|regex:/^[A-ZÀ-úa-z\s]+$/',
+            "nome_beat" => 'required|min:3|max:20|',
             "descricao" => 'required',
             "tipo" => 'required'
         ];
