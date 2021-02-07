@@ -8,8 +8,8 @@
 
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <a class="btn btn-primary" href="">
-        <i class="fas fa-plus"></i> Add Beat
+      <a class="btn btn-primary" href="{{route('portfolios.create')}}">
+        <i class="fas fa-plus"></i> Adicionar beat
       </a>
     </div>
     <div class="card-body">
@@ -18,9 +18,9 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Type</th>
+              <th>Nome</th>
+              <th>Descrição</th>
+              <th>Tipo</th>
               <th>Menu</th>
             </tr>
           </thead>
@@ -31,9 +31,9 @@
               <td>{{$portfolios->descricao}}</td>
               <td>{{$portfolios->tipo}}</td>
               <td nowrap>
-                <a class="btn btn-xs btn-primary btn-p" href=""><i class="fas fa-eye fa-xs"></i></a>
-                <a class="btn btn-xs btn-warning btn-p" href=""><i class="fas fa-pen fa-xs"></i></a>
-                <form method="POST" action="" role="form" class="inline" onsubmit="return confirm('Tem a certeza que quer excluir este beat?')">
+                <a class="btn btn-xs btn-primary btn-p" href="{{route('portfolios.show',$portfolios)}}"><i class="fas fa-eye fa-xs"></i></a>
+                <a class="btn btn-xs btn-warning btn-p" href="{{route('portfolios.edit',$portfolios)}}"><i class="fas fa-pen fa-xs"></i></a>
+                <form method="POST" action="{{route('portfolios.destroy',$portfolios)}}" role="form" class="inline" onsubmit="return confirm('Tem a certeza que quer excluir este beat?')">
                   @csrf
                   @method("DELETE")
                   <button type="submit" class="btn btn-xs btn-danger btn-p"><i class="fas fa-trash fa-xs"></i></button>

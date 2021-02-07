@@ -4,9 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreportfoliosRequest extends FormRequest
+class UpdateportfoliosRequest extends FormRequest
 {
-        /**
+    /**
      *	Determine if the user is authorized to make this request.
      *
      *	@return bool
@@ -15,6 +15,7 @@ class StoreportfoliosRequest extends FormRequest
     {
         return true;
     }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -23,7 +24,7 @@ class StoreportfoliosRequest extends FormRequest
     public function rules()
     {
         return [
-            "nome_beat" => 'required|min:3|max:20', 
+            "nome_beat" => 'required|min:3|max:20|',
             "descricao" => 'required',
             "tipo" => 'required'
         ];
@@ -31,8 +32,7 @@ class StoreportfoliosRequest extends FormRequest
     public function messages()
     {
         return [
-            'nome_beat.regex' => '3-20'
-
+            'nome_beat.regex' => '2-20'
         ];
     }
 }
