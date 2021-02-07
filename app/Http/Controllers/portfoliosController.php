@@ -14,7 +14,9 @@ class portfoliosController extends Controller
      */
     public function index()
     {
-        //
+        $portfolio=portfolios::all();
+        return view('portfolio.list', compact('portfolio'));
+
     }
 
     /**

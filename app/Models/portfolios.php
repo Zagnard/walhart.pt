@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class portfolios extends Model
 {
     use HasFactory;
+
+    protected $fillable = [ 'nome_beat', 'descricao', 'tipo' ];
+    protected $primaryKey="id";
+
+
 }
