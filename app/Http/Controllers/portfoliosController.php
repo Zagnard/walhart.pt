@@ -14,9 +14,8 @@ class portfoliosController extends Controller
      */
     public function index()
     {
-        $portfolio=portfolios::all();
+        $portfolio = portfolios::all();
         return view('portfolio.list', compact('portfolio'));
-
     }
 
     /**
@@ -26,7 +25,8 @@ class portfoliosController extends Controller
      */
     public function create()
     {
-        //
+        $portfolios = new portfolios;
+        return view('portfolio.add', compact("portfolios"));
     }
 
     /**
@@ -37,7 +37,20 @@ class portfoliosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fields = $request->validate(
+            [
+                'nome_beat' => 'required|min:3|max:20', 
+                'descricao' => 'required',
+                'tipo' => 'required'
+            ],[
+                'nome_beat.regex' => 'Name should contain only letters and spaces'
+            ]
+        );
+        $portfolios = new portfolios();
+        $portfolios->fill($fields);
+        $portfolios->save();
+        return redirect()->route('portfolios.index')->with('success','Beat successfully created'
+        );
     }
 
     /**
