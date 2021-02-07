@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\colaboradoresController;
+use App\Http\Controllers\portfoliosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,9 @@ use App\Http\Controllers\ServicesController;
 // Rota resourceful para as diferentes tabelas
 Route::resource('faq', FaqController::class);
 Route::resource('services', ServicesController::class);
+Route::resource('colaboraodres', FaqController::class);
+Route::resource('portfolios', ServicesController::class);
+
 
 
 Route::get("/", [PageController::class, "index"])->name("wl.index");
