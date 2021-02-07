@@ -16,6 +16,7 @@
     </div>
   </section>
 
+  @if (count($service))
   @foreach ($service as $services)
   <section class="row section col-md-reverse">
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
@@ -31,6 +32,9 @@
       </div>
   </section>
   @endforeach
+  @else
+      <h6>Sem serviços registados</h6>
+  @endif
 
   <!-- 2nd section -->
   <!-- <section class="row section col-md-reverse">
