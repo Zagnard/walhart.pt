@@ -18,6 +18,7 @@ class AddFeilsToPortfoliosTable extends Migration
             $table->string('descricao');
             $table->string('tipo');
             $table->string('beat_audio')->nullable();
+            $table->string('beat_imagem')->nullable();
         });
     }
 
