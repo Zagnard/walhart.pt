@@ -6,16 +6,17 @@
 
      <div class="card shadow mb-4">
         <div class="card-header py-3">
-			Edit Service
+			Editar Beat
         </div>
         <div class="card-body">
 		
-			<form method="POST" action="#" class="form-group">
+			<form method="POST" action="{{route('portfolios.update',$portfolios)}}" class="form-group">
+				@csrf
 				@include('portfolio.partials.add-edit')
 				<div class="form-group">
 					<button type="submit" class="btn btn-success" name="ok">Save</button>
 
-					<a href="{{route('portfolio.portfolio')}" class="btn btn-default">Cancel</a>
+					<a href="{{route('portfolios.index')}" class="btn btn-default">Cancel</a>
     
 				</div>
 

@@ -7,16 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 class StoreportfoliosRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return false;
-    }
-
-    /**
      * Get the validation rules that apply to the request.
      *
      * @return array
@@ -24,7 +14,16 @@ class StoreportfoliosRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "nome_beat" => 'required|min:3|max:20', 
+            "descricao" => 'required',
+            "tipo" => 'required'
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'nome_beat.regex' => '3-20'
+
         ];
     }
 }

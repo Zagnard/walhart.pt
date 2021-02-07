@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\portfolios;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreportfoliosRequest;
+use App\Http\Requests\UpdateportfoliosRequest;
 
 class portfoliosController extends Controller
 {
@@ -35,22 +37,13 @@ class portfoliosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreportfoliosRequest $request)
     {
-        $fields = $request->validate(
-            [
-                'nome_beat' => 'required|min:3|max:20', 
-                'descricao' => 'required',
-                'tipo' => 'required'
-            ],[
-                'nome_beat.regex' => 'Name should contain only letters and spaces'
-            ]
-        );
+        $fields = $request->validated();
         $portfolios = new portfolios();
         $portfolios->fill($fields);
         $portfolios->save();
-        return redirect()->route('portfolios.index')->with('success','Beat successfully created'
-        );
+        return redirect()->route('portfolios.index')->with('success', 'Beat criado com sucesso');
     }
 
     /**
@@ -72,7 +65,7 @@ class portfoliosController extends Controller
      */
     public function edit(portfolios $portfolios)
     {
-        //
+        return view('portfolio.edit', compact('portfolios'));
     }
 
     /**
@@ -82,9 +75,15 @@ class portfoliosController extends Controller
      * @param  \App\Models\portfolios  $portfolios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, portfolios $portfolios)
+    public function update(UpdateportfoliosRequest $request, portfolios $portfolios)
     {
-        //
+        $fields = $request->validated();
+        $portfolios->fill($fields);
+        $portfolios->save();
+        return redirect()->route('portfolios.index')->with(
+            'success',
+            'Beat foi atulizado com sucesso'
+        );
     }
 
     /**
