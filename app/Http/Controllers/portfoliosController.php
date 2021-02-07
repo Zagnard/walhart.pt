@@ -1,0 +1,100 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\portfolios;
+use Illuminate\Http\Request;
+
+class portfoliosController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $portfolio = portfolios::all();
+        return view('portfolio.list', compact('portfolio'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $portfolios = new portfolios;
+        return view('portfolio.add', compact("portfolios"));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $fields = $request->validate(
+            [
+                'nome_beat' => 'required|min:3|max:20', 
+                'descricao' => 'required',
+                'tipo' => 'required'
+            ],[
+                'nome_beat.regex' => 'Name should contain only letters and spaces'
+            ]
+        );
+        $portfolios = new portfolios();
+        $portfolios->fill($fields);
+        $portfolios->save();
+        return redirect()->route('portfolios.index')->with('success','Beat successfully created'
+        );
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\portfolios  $portfolios
+     * @return \Illuminate\Http\Response
+     */
+    public function show(portfolios $portfolios)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\portfolios  $portfolios
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(portfolios $portfolios)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\portfolios  $portfolios
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, portfolios $portfolios)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\portfolios  $portfolios
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(portfolios $portfolios)
+    {
+        //
+    }
+}

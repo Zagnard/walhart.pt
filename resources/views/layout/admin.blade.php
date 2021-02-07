@@ -85,6 +85,20 @@
           </div>
         </div>
       </li>
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosts" aria-expanded="true"
+          aria-controls="collapsePosts">
+          <i class="fas fa-fw fa-folder"></i>
+          <span>Beat</span>
+        </a>
+        <div id="collapsePosts" class="collapse" aria-labelledby="headingPosts" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="{{route('portfolios.index')}}">List Beat</a>
+            <a class="collapse-item" href="{{route('portfolios.create')}}">Add Beat</a>
+          </div>
+        </div>
+      </li>
 
 
       <!-- Divider -->
@@ -160,7 +174,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Games and Multimedia 2019</span>
+            <span>Copyright &copy; Walhart studio 2021</span>
           </div>
         </div>
       </footer>

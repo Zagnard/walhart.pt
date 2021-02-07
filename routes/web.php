@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Controllers\colaboradoresController;
+use App\Http\Controllers\portfoliosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +20,14 @@ use App\Http\Controllers\ServicesController;
 
 // Rota resourceful para as diferentes tabelas
 Route::prefix('admin')->group(function () {
+
     Route::resource('faq', FaqController::class);
     Route::resource('services', ServicesController::class);
+    Route::resource('colaboraodres', FaqController::class);
+    Route::resource('portfolios', portfoliosController::class);
+
 });
+
 
 
 Route::get("/", [PageController::class, "index"])->name("wl.index");
@@ -31,3 +38,4 @@ Route::get("/perfil_de_utilizador", [PageController::class, "perfil_de_utilizado
 Route::get("/front_user_edit", [PageController::class, "front_user_edit"])->name("wl.front_user_edit");
 Route::get("/services", [PageController::class, "services"])->name("wl.services");
 Route::get("/portfolio", [PageController::class, "portfolio"])->name("wl.portfolio");
+
