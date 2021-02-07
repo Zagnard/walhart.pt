@@ -10,8 +10,8 @@
         </div>
         <div class="card-body">
 
-			<div><strong>Name:</strong> xxx </div>
-			<div><strong>Description:</strong> xxx </div>
+			<div><strong>Name:</strong> {{$services->nome}} </div>
+			<div><strong>Description:</strong> {{$services->descricao}} </div>
 		</div>
 	</div>
 </div>

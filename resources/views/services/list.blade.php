@@ -8,11 +8,12 @@
 
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <a class="btn btn-primary" href="#">
+      <a class="btn btn-primary" href="{{route('services.create')}}">
         <i class="fas fa-plus"></i> Add Service
       </a>
     </div>
     <div class="card-body">
+    @if (count($services))
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
@@ -20,34 +21,32 @@
               <th>Name</th>
               <th>Description</th>
               <th>Price</th>
+              <th>Menu</th>
             </tr>
           </thead>
           <tbody>
+          @foreach($services as $service)
             <tr>
-              <td>News</td>
-              <td>Category about news</td>
+              <td>{{$service->nome}}</td>
+              <td>{{$service->descricao}}</td>
+              <td>{{$service->preco}}</td>
               <td nowrap>
-                <a class="btn btn-xs btn-primary btn-p" href="#"><i class="fas fa-eye fa-xs"></i></a>
-                <a class="btn btn-xs btn-warning btn-p" href="#"><i class="fas fa-pen fa-xs"></i></a>
-                <form method="POST" action="#" role="form" class="inline">
+                <a class="btn btn-xs btn-primary btn-p" href="{{route('services.show',$service)}}"><i class="fas fa-eye fa-xs"></i></a>
+                <a class="btn btn-xs btn-warning btn-p" href="{{route('services.edit',$service)}}"><i class="fas fa-pen fa-xs"></i></a>
+                <form method="POST" action="{{route('services.destroy',$service)}}" role="form" class="inline" onsubmit="return confirm('Tem a certeza que quer excluir este serviço?')">
+                  @csrf
+                  @method("DELETE")
                   <button type="submit" class="btn btn-xs btn-danger btn-p"><i class="fas fa-trash fa-xs"></i></button>
                 </form>
               </td>
             </tr>
-            <tr>
-              <td>Events</td>
-              <td>Category about events</td>
-              <td nowrap>
-                <a class="btn btn-xs btn-primary btn-p" href="#"><i class="fas fa-eye fa-xs"></i></a>
-                <a class="btn btn-xs btn-warning btn-p" href="#"><i class="fas fa-pen fa-xs"></i></a>
-                <form method="POST" action="#" role="form" class="inline">
-                  <button type="submit" class="btn btn-xs btn-danger btn-p"><i class="fas fa-trash fa-xs"></i></button>
-                </form>
-              </td>
-            </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
+      @else
+      <h6>Sem serviços registados</h6>
+      @endif
     </div>
   </div>
 </div>
