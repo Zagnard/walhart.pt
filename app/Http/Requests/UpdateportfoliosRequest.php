@@ -4,12 +4,12 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreServicesRequest extends FormRequest
+class UpdateportfoliosRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     *	Determine if the user is authorized to make this request.
      *
-     * @return bool
+     *	@return bool
      */
     public function authorize()
     {
@@ -24,14 +24,15 @@ class StoreServicesRequest extends FormRequest
     public function rules()
     {
         return [
-            "nome"=>'required|min:2|max:100|unique:services,nome|regex:/^[A-ZÀ-úa-z\s]+$/','descricao'=>'required','preco'=>'required'
+            "nome_beat" => 'required|min:3|max:20|',
+            "descricao" => 'required',
+            "tipo" => 'required'
         ];
     }
-    
     public function messages()
     {
-        return[
-            'nome.regex'=>'O nome só deve conter letras e espaços'
+        return [
+            'nome_beat.regex' => '2-20'
         ];
     }
 }

@@ -7,17 +7,17 @@
 
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
-			Add Beat
+			Adicionar Beat
 		</div>
 		<div class="card-body">
 
-			<form method="POST" action="{{route('portfolios.store')}}" class="form-group">
+			<form method="POST" enctype="multipart/form-data" action="{{route('portfolios.store')}}" class="form-group">
 				@csrf
 				@include('portfolio.partials.add-edit')
 
 				<div class="form-group">
-					<button type="submit" class="btn btn-success" name="ok">Save</button>
-					<a href="{{route('portfolios.index')}" class="btn btn-default">Cancel</a>
+					<button type="submit" class="btn btn-success" name="ok">Salvar</button>
+					<a href="{{route('portfolios.index')}" class="btn btn-default">Cancelar</a>
 				</div>
 			</form>
 		</div>

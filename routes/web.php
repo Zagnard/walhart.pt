@@ -43,9 +43,9 @@ Route::get("/login", [PageController::class, "login"])->name("wl.login");
 Route::get("/registo", [PageController::class, "registo"])->name("wl.registo");
 Route::get("/perfil_de_utilizador", [PageController::class, "perfil_de_utilizador"])->name("wl.perfil_de_utilizador");
 Route::get("/front_user_edit", [PageController::class, "front_user_edit"])->name("wl.front_user_edit");
-Route::get("/services", [PageController::class, "services"])->name("wl.services");
-Route::get("/portfolio", [PageController::class, "portfolio"])->name("wl.portfolio");
-//Route::get("/perfil_de_utilizador", [UserController::class, "users"])->name("wl.perfil_de_utilizador");
+Route::get("/services", [ServicesController::class, "services"])->name("wl.services");
+Route::get("/portfolio", [portfoliosController::class, "portfolios"])->name("wl.portfolio");
+
 
 
 Route::get('/admin', [HomeController::class, 'index'])->name('admin');
@@ -54,3 +54,5 @@ Route::group(['middleware'=>['auth', 'verified']], function() {
 	Route::get('/users/{user}/send_reactivate_mail',
 	[UserController::class,'send_reactivate_email'])->name('users.sendActivationEmail'); 
 });
+
+//Route::get("/perfil_de_utilizador", [UserController::class, "users"])->name("wl.perfil_de_utilizador");

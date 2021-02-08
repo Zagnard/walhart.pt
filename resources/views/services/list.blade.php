@@ -13,7 +13,7 @@
       </a>
     </div>
     <div class="card-body">
-    @if (count($services))
+    @if (count($service))
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
@@ -25,15 +25,15 @@
             </tr>
           </thead>
           <tbody>
-          @foreach($services as $service)
+          @foreach($service as $services)
             <tr>
-              <td>{{$service->nome}}</td>
-              <td>{{$service->descricao}}</td>
-              <td>{{$service->preco}}</td>
+              <td>{{$services->nome}}</td>
+              <td>{{$services->descricao}}</td>
+              <td>{{$services->preco}}</td>
               <td nowrap>
-                <a class="btn btn-xs btn-primary btn-p" href="{{route('services.show',$service)}}"><i class="fas fa-eye fa-xs"></i></a>
-                <a class="btn btn-xs btn-warning btn-p" href="{{route('services.edit',$service)}}"><i class="fas fa-pen fa-xs"></i></a>
-                <form method="POST" action="{{route('services.destroy',$service)}}" role="form" class="inline" onsubmit="return confirm('Tem a certeza que quer excluir este serviço?')">
+                <a class="btn btn-xs btn-primary btn-p" href="{{route('services.show',$services)}}"><i class="fas fa-eye fa-xs"></i></a>
+                <a class="btn btn-xs btn-warning btn-p" href="{{route('services.edit',$services)}}"><i class="fas fa-pen fa-xs"></i></a>
+                <form method="POST" action="{{route('services.destroy',$services)}}" role="form" class="inline" onsubmit="return confirm('Tem a certeza que quer excluir este serviço?')">
                   @csrf
                   @method("DELETE")
                   <button type="submit" class="btn btn-xs btn-danger btn-p"><i class="fas fa-trash fa-xs"></i></button>

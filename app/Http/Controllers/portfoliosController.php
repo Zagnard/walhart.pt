@@ -4,6 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\portfolios;
 use Illuminate\Http\Request;
+use App\File;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreportfoliosRequest;
+use App\Http\Requests\UpdateportfoliosRequest;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\URL;
+use Carbon\Carbon;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class portfoliosController extends Controller
 {
@@ -35,22 +45,23 @@ class portfoliosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreportfoliosRequest $request)
     {
-        $fields = $request->validate(
-            [
-                'nome_beat' => 'required|min:3|max:20', 
-                'descricao' => 'required',
-                'tipo' => 'required'
-            ],[
-                'nome_beat.regex' => 'Name should contain only letters and spaces'
-            ]
-        );
+        $fields = $request->validated();
         $portfolios = new portfolios();
         $portfolios->fill($fields);
+        if($request->hasFile('beat_audio')){
+            $uniqueid=uniqid();
+            $original_name=$request->file('beat_audio')->getClientOriginalName();
+            $size=$request->file('beat_audio')->getSize();
+            $extension=$request->file('beat_audio')->getClientOriginalExtension();
+            $filename=Carbon::now()->format('Ymd').'_'.$uniqueid.'.'.$extension;
+            $path=$request->file('beat_audio')->storeAs('public/upload/files/audio', $filename);
+            $portfolios->beat_audio = $path;
+    }
+            
         $portfolios->save();
-        return redirect()->route('portfolios.index')->with('success','Beat successfully created'
-        );
+        return redirect()->route('portfolios.index')->with('success', 'Beat criado com sucesso');
     }
 
     /**
@@ -59,9 +70,9 @@ class portfoliosController extends Controller
      * @param  \App\Models\portfolios  $portfolios
      * @return \Illuminate\Http\Response
      */
-    public function show(portfolios $portfolios)
+    public function show(portfolios $portfolio)
     {
-        //
+        return view('portfolio.show', compact("portfolio"));
     }
 
     /**
@@ -70,9 +81,9 @@ class portfoliosController extends Controller
      * @param  \App\Models\portfolios  $portfolios
      * @return \Illuminate\Http\Response
      */
-    public function edit(portfolios $portfolios)
+    public function edit(portfolios $portfolio)
     {
-        //
+        return view('portfolio.edit', compact('portfolio'));
     }
 
     /**
@@ -82,9 +93,15 @@ class portfoliosController extends Controller
      * @param  \App\Models\portfolios  $portfolios
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, portfolios $portfolios)
+    public function update(UpdateportfoliosRequest $request, portfolios $portfolio)
     {
-        //
+        $fields = $request->validated();
+        $portfolio->fill($fields);
+        $portfolio->save();
+        return redirect()->route('portfolios.index')->with(
+            'success',
+            'Beat foi atulizado com sucesso'
+        );
     }
 
     /**
@@ -93,8 +110,21 @@ class portfoliosController extends Controller
      * @param  \App\Models\portfolios  $portfolios
      * @return \Illuminate\Http\Response
      */
-    public function destroy(portfolios $portfolios)
+    public function destroy(portfolios $portfolio)
     {
-        //
+        //if ($portfolio->posts()->exists()) {
+        //    return redirect()->route('portfolios.index')->withErrors(
+        //        ['delete' => 'Categoria tem postagens relacionadas']
+        //    );
+        //}
+        $portfolio->delete();
+        return redirect()->route('portfolios.index')->with('success', 'Category eliminadas com sucesso');
+    }
+    public function portfolios()
+    {
+        $portfolios = portfolios::all();
+        return view('portfolio', compact('portfolios'));
     }
 }
+
+    

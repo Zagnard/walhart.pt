@@ -73,12 +73,12 @@
       </li>
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosts" aria-expanded="true"
-          aria-controls="collapsePosts">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseServices" aria-expanded="true"
+          aria-controls="collapseServices">
           <i class="fas fa-fw fa-folder"></i>
           <span>Services</span>
         </a>
-        <div id="collapsePosts" class="collapse" aria-labelledby="headingPosts" data-parent="#accordionSidebar">
+        <div id="collapseServices" class="collapse" aria-labelledby="headingServices" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="{{route('services.index')}}">List Services</a>
             <a class="collapse-item" href="{{route('services.create')}}">Add Service</a>

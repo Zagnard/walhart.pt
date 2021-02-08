@@ -10,14 +10,14 @@
         </div>
         <div class="card-body">
 		
-			<form method="POST" action="{{route('services.update',$services)}}" class="form-group inline">
+			<form method="POST" action="{{route('services.update',$service)}}" class="form-group inline">
 				@csrf
 				@method("PUT")
 				@include('services.partials.add-edit')
 				<div class="form-group">
 					<button type="submit" class="btn btn-success" name="ok">Save</button>
 
-					<a href="{{route('services.index')}" class="btn btn-default">Cancel</a>
+					<a href="{{route('services.index')}}" class="btn btn-default">Cancel</a>
     
 				</div>
 
