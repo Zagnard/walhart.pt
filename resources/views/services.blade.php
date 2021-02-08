@@ -16,8 +16,28 @@
     </div>
   </section>
 
-  <!-- 2nd section -->
+  @if (count($service))
+  @foreach ($service as $services)
   <section class="row section col-md-reverse">
+    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+      <div class="flex-center p-5">
+        <div class="md-flex-center">
+          <h2 class="text-color-primary mb-4">{{$services->nome}}</h2>
+          <p class="mb-4">{{$services->descricao}}</p>
+        </div>
+      </div>
+    </div>  
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 p-0 text-center">
+        <img src="./imagens/2 - Masterização de som.jpg" alt="Image" class="img-fluid">
+      </div>
+  </section>
+  @endforeach
+  @else
+      <h6>Sem serviços registados</h6>
+  @endif
+
+  <!-- 2nd section -->
+  <!-- <section class="row section col-md-reverse">
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="flex-center p-5">
         <div class="md-flex-center">
@@ -29,10 +49,10 @@
       <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 p-0 text-center">
         <img src="./imagens/2 - Masterização de som.jpg" alt="Image" class="img-fluid">
       </div>
-  </section>
+  </section> -->
 
   <!-- 3rd Section -->
-  <section class="row section mb-30">
+  <!-- <section class="row section mb-30">
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 p-0 text-center">
       <img src="./imagens/3 - Mixagem de som.jpg" alt="Image" class="img-fluid">
     </div>
@@ -44,10 +64,10 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- 4th Section -->
-  <section class="row section col-md-reverse">
+  <!-- <section class="row section col-md-reverse">
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="flex-center p-5">
         <div class="md-flex-center">
@@ -59,10 +79,10 @@
       <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 p-0 text-center">
         <img src="./imagens/1 - Captação de som.jpg" alt="Image" class="img-fluid">
       </div>
-  </section>
+  </section> -->
 
   <!-- 5th Section -->
-  <section class="row section mb-30">
+  <!-- <section class="row section mb-30">
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 p-0 text-center">
       <img src="./imagens/4 - Beats.png" alt="Image" class="img-fluid">
     </div>
@@ -74,7 +94,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   </div>
 
