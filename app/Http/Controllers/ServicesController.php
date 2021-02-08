@@ -98,9 +98,9 @@ class ServicesController extends Controller
         return redirect()->route('services.index')->with('success','Serviço eliminado com sucesso');
     }
 
-    public function services(Services $service)
+    public function services()
     {
-        $service=Services::all();
-        return view('services',compact('service'));
+        $services=Services::all();
+        return view('services',compact('services'));
     }
 }

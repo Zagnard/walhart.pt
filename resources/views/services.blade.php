@@ -16,14 +16,14 @@
     </div>
   </section>
 
-  @if (count($service))
-  @foreach ($service as $services)
+  @if (count($services))
+  @foreach ($services as $service)
   <section class="row section col-md-reverse">
     <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
       <div class="flex-center p-5">
         <div class="md-flex-center">
-          <h2 class="text-color-primary mb-4">{{$services->nome}}</h2>
-          <p class="mb-4">{{$services->descricao}}</p>
+          <h2 class="text-color-primary mb-4">{{$service->nome}}</h2>
+          <p class="mb-4">{{$service->descricao}}</p>
         </div>
       </div>
     </div>  
