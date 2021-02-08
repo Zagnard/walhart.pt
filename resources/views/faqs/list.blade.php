@@ -8,7 +8,7 @@
 
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <a class="btn btn-primary" href="{{ route(faqs.list) }}">
+      <a class="btn btn-primary" href="{{ route('faq.create') }}">
         <i class="fas fa-plus"></i> faqs
       </a>
     </div>
@@ -28,9 +28,9 @@
               <td>{{$faq->questions}}</td>
               <td>{{$faq->answers}}</td>
               <td nowrap>
-                <a class="btn btn-xs btn-primary btn-p" href="{{ route('faqs.show', $faq) }}"><i class="fas fa-eye fa-xs"></i></a>
-                <a class="btn btn-xs btn-warning btn-p" href="{{ route('faqs.edit', $faq) }}"><i class="fas fa-pen fa-xs"></i></a>
-                <form method="POST" action="{{ route('faqs.destroy', faq) }}" role="form" class="inline" onsubmit="return confirm('Tem a certeza que quer destruir este faq?')">
+                <a class="btn btn-xs btn-primary btn-p" href="{{ route('faq.show', $faq) }}"><i class="fas fa-eye fa-xs"></i></a>
+                <a class="btn btn-xs btn-warning btn-p" href="{{ route('faq.edit', $faq) }}"><i class="fas fa-pen fa-xs"></i></a>
+                <form method="POST" action="{{ route('faq.destroy', $faq) }}" role="form" class="inline" onsubmit="return confirm('Tem a certeza que quer destruir este faq?')">
                   @csrf
                   @method("DELETE")
                   <button type="submit" class="btn btn-xs btn-danger btn-p"><i class="fas fa-trash fa-xs"></i></button>

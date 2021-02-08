@@ -52,7 +52,7 @@ class FaqController extends Controller
 				$faq = new Faq();
 				$faq->fill($fields);
 				$faq->save();
-				return redirect()->route('categories.index')->with('success', 'Faq successfully created');
+				return redirect()->route('faqs.index')->with('success', 'Faq successfully created');
     }
 
     /**
@@ -92,7 +92,7 @@ class FaqController extends Controller
 				$fields = $request->validated();
 				$faq->fill($fields);
 				$faq->save();
-				return redirect()->route('faqs.index')->with('success', 'Faq atualizado com sucesso');
+				return redirect()->route('faq.index')->with('success', 'Faq atualizado com sucesso');
     }
 
     /**
@@ -105,6 +105,6 @@ class FaqController extends Controller
     {
       //
 			$faq->delete();
-			return redirect()->route('faqs.index')->with('sucesso', 'Faq apagacado com sucesso');
+			return redirect()->route('faq.index')->with('sucesso', 'Faq apagacado com sucesso');
     }
 }

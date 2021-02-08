@@ -6,6 +6,8 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\colaboradoresController;
 use App\Http\Controllers\portfoliosController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +21,19 @@ use App\Http\Controllers\portfoliosController;
 */
 
 // Rota resourceful para as diferentes tabelas
-Route::prefix('admin')->group(function () {
+Route::group(['prefix' => 'admin', 'middleware'=>['auth', 'verified']], function () {
     Route::resource('faq', FaqController::class);
     Route::resource('services', ServicesController::class);
     Route::resource('colaboraodres', FaqController::class);
     Route::resource('portfolios', portfoliosController::class);
+    Route::resource('users', UserController::class);
 
 });
+
+Route::group(['prefix' => 'admin'], function(){
+	Auth::routes(['register' => false, 'verify' => true]);
+});
+
 
 
 
@@ -39,7 +47,6 @@ Route::get("/services", [PageController::class, "services"])->name("wl.services"
 Route::get("/portfolio", [PageController::class, "portfolio"])->name("wl.portfolio");
 //Route::get("/perfil_de_utilizador", [UserController::class, "users"])->name("wl.perfil_de_utilizador");
 
-Auth::routes(['register' => false, 'verify' => true]);
 
 Route::get('/admin', [HomeController::class, 'index'])->name('admin');
 

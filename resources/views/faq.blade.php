@@ -2,7 +2,7 @@
     @section('title', 'faq')
     @section('content')
         <!-- Acórdeão -->
-        <div id="accordion">
+        <div class="accordion" id="accordion">
 
             <!-- Linha 1 -->
             <div class="row">
@@ -29,6 +29,14 @@
                 </div>
 							@endforeach
             </div>
+@endsection
 
+@section('scripts')
 
-        @endsection
+<script>
+
+$('.collapse').collapse();
+
+</script>
+
+@endsection

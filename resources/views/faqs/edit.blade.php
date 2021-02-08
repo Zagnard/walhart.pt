@@ -10,14 +10,14 @@
             </div>
             <div class="card-body">
 
-                <form method="POST" action="{{ route('faqs.update', $faq) }}" class="form-group">
+                <form method="POST" action="{{ route('faq.update', $faq) }}" class="form-group">
 									@csrf
 									@method('PUT')
                     @include('portfolio.partials.add-edit')
                     <div class="form-group">
                         <button type="submit" class="btn btn-success" name="ok">Save</button>
 
-                        <a href="{{route('faqs.index')}}" class="btn btn-default">Cancel</a>
+                        <a href="{{route('faq.index')}}" class="btn btn-default">Cancel</a>
         
         </div>
 

@@ -66,8 +66,8 @@
         <div id="collapseUsers" class="collapse" aria-labelledby="headingUsers" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="{{ route('faq.list') }}">List faq</a>
-            <a class="collapse-item" href="{{ route('faq.add') }}">Add faq</a>
+            <a class="collapse-item" href="{{ route('faq.index') }}">List faq</a>
+            <a class="collapse-item" href="{{ route('faq.create') }}">Add faq</a>
           </div>
         </div>
       </li>
@@ -140,10 +140,11 @@
                 <img class="img-profile rounded-circle" alt="Photo User" src="{{asset('img/default_user.jpg')}}">
 								@else
 								<img class="img-profile rounded-circle" alt="Photo User" src="{{storage::disk('public')->url('users_photos/').auth()->user()->photo}}">
+								@endif
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="{{ route('users.edit'.auth()->user()) }}">
+                <a class="dropdown-item" href="{{ route('users.edit', auth()->user()) }}">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
