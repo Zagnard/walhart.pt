@@ -120,4 +120,11 @@ class portfoliosController extends Controller
         $portfolio->delete();
         return redirect()->route('portfolios.index')->with('success', 'Category eliminadas com sucesso');
     }
+    public function portfolios()
+    {
+        $portfolios = portfolios::all();
+        return view('portfolio', compact('portfolios'));
+    }
 }
+
+    
