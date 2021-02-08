@@ -4,8 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\portfolios;
 use Illuminate\Http\Request;
+use App\File;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreportfoliosRequest;
 use App\Http\Requests\UpdateportfoliosRequest;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\URL;
+use Carbon\Carbon;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class portfoliosController extends Controller
 {
@@ -42,6 +50,16 @@ class portfoliosController extends Controller
         $fields = $request->validated();
         $portfolios = new portfolios();
         $portfolios->fill($fields);
+        if($request->hasFile('audio')){
+            $uniqueid=uniqid();
+            $original_name=$request->file('audio')->getClientOriginalName();
+            $size=$request->file('audio')->getSize();
+            $extension=$request->file('audio')->getClientOriginalExtension();
+            $filename=Carbon::now()->format('Ymd').'_'.$uniqueid.'.'.$extension;
+            $audiopath=url('/storage/upload/files/audio/'.$filename);
+            $path=$request->storeAs('public/upload/files/audio/',$filename);
+    }
+            
         $portfolios->save();
         return redirect()->route('portfolios.index')->with('success', 'Beat criado com sucesso');
     }

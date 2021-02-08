@@ -10,3 +10,9 @@
     <label for="inputtipo">Tipo</label>
     <textarea class="form-control" name="tipo" id="inputtipo">{{old('tipo',$portfolios->tipo)}}</textarea>
 </div>
+<div class="form-group">
+    <label for="inputbeat_audio">Audio</label>
+    <input type="file" class="form-control-file" name="beat_audio" id="inputbeat_audio" aria-describedby="fileHelp" />
+    <small id="fileHelp" class="form-text text-muted">
+        Please upload a valid file audio. mp3 file. </small>
+</div>

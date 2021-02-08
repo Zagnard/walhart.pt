@@ -22,11 +22,18 @@ class StoreportfoliosRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+            $rules = [
             "nome_beat" => 'required|min:3|max:20', 
             "descricao" => 'required',
-            "tipo" => 'required'
-        ];
+            "tipo" => 'required',
+            ];
+        
+            //  if fileType is audio
+            if ($this->input('fileType') == 'audio') {
+                $rules['beat_audio'] = 'nullable|file|mimes:audio/mpeg,mpga,mp3,wav,aac';
+            }
+            return $rules;
+            
     }
     public function messages()
     {

@@ -13,7 +13,7 @@
       </a>
     </div>
     <div class="card-body">
-    @if (count($portfolio))
+      @if (count($portfolio))
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>
@@ -25,8 +25,17 @@
             </tr>
           </thead>
           <tbody>
-          @foreach($portfolio as $portfolios)
+            @foreach($portfolio as $portfolios)
             <tr>
+              <td>
+                @if ($portfolios->beat_audio)
+                <audio controls>
+                  <source src="{{Storage::disk('public')->url('beats/').$post->beat_audio}}" type="audio/mpeg">
+                  Your browser does not support the audio element.
+                </audio>
+                @endif
+              </td>
+
               <td>{{$portfolios->nome_beat}}</td>
               <td>{{$portfolios->descricao}}</td>
               <td>{{$portfolios->tipo}}</td>
@@ -54,15 +63,18 @@
 
 @section("moreScripts")
 <script>
-  $('#dataTable').dataTable( {
-  destroy: true,
-    "order": [[ 0, 'asc' ]],  
-	"columns": [
-	  null,
-    null,
-    { "orderable": false }
-  ]
-} );
-
+  $('#dataTable').dataTable({
+    destroy: true,
+    "order": [
+      [0, 'asc']
+    ],
+    "columns": [
+      null,
+      null,
+      {
+        "orderable": false
+      }
+    ]
+  });
 </script>
 @endsection
