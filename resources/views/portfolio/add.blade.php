@@ -11,7 +11,7 @@
 		</div>
 		<div class="card-body">
 
-			<form method="POST" action="{{route('portfolios.store')}}" class="form-group">
+			<form method="POST" enctype="multipart/form-data" action="{{route('portfolios.store')}}" class="form-group">
 				@csrf
 				@include('portfolio.partials.add-edit')
 

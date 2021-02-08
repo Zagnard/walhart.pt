@@ -30,7 +30,7 @@
               <td>
                 @if ($portfolios->beat_audio)
                 <audio controls>
-                  <source src="{{Storage::disk('public')->url('beats/').$post->beat_audio}}" type="audio/mpeg">
+                  <source src="{{Storage::url($portfolios->beat_audio)}}" type="audio/mpeg">
                   Your browser does not support the audio element.
                 </audio>
                 @endif
