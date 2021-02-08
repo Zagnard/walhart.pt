@@ -29,7 +29,7 @@ class StoreportfoliosRequest extends FormRequest
             ];
         
             //  if fileType is audio
-            if ($this->input('fileType') == 'audio') {
+            if ($this['beat_audio']) {
                 $rules['beat_audio'] = 'nullable|file|mimes:audio/mpeg,mpga,mp3,wav,aac';
             }
             return $rules;

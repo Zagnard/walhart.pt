@@ -50,14 +50,14 @@ class portfoliosController extends Controller
         $fields = $request->validated();
         $portfolios = new portfolios();
         $portfolios->fill($fields);
-        if($request->hasFile('audio')){
+        if($request->hasFile('beat_audio')){
             $uniqueid=uniqid();
-            $original_name=$request->file('audio')->getClientOriginalName();
-            $size=$request->file('audio')->getSize();
-            $extension=$request->file('audio')->getClientOriginalExtension();
+            $original_name=$request->file('beat_audio')->getClientOriginalName();
+            $size=$request->file('beat_audio')->getSize();
+            $extension=$request->file('beat_audio')->getClientOriginalExtension();
             $filename=Carbon::now()->format('Ymd').'_'.$uniqueid.'.'.$extension;
-            $audiopath=url('/storage/upload/files/audio/'.$filename);
-            $path=$request->storeAs('public/upload/files/audio/',$filename);
+            $path=$request->file('beat_audio')->storeAs('public/upload/files/audio', $filename);
+            $portfolios->beat_audio = $path;
     }
             
         $portfolios->save();

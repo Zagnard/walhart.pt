@@ -10,7 +10,7 @@
         </div>
         <div class="card-body">
 		
-			<form method="POST" action="{{route('portfolios.update',$portfolio)}}" class="form-group inline">
+			<form method="POST" enctype="multipart/form-data" action="{{route('portfolios.update',$portfolio)}}" class="form-group inline">
 				@csrf
 				@method("PUT")
 				@include('portfolio.partials.add-edit')
