@@ -61,13 +61,13 @@
       <div class="col-md-5">
         <!--<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="50" height="50" xmlns="./imagens/pac5c_4x5.jpg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
         -->
-        <img class="img-place" width="300" height="300" src="./imagens/pac5c_4x5.jpg">
+        <img class="img-place" width="300" height="300" src="{{Storage::url($portfolio->beat_imagem)}}">
 
       </div>
     </div>
+    <hr class="featurette-divider">
     @endforeach
     @endif
-    <hr class="featurette-divider">
 
     <!-- /END THE FEATURETTES -->
 

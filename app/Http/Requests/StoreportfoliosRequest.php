@@ -26,12 +26,14 @@ class StoreportfoliosRequest extends FormRequest
             "nome_beat" => 'required|min:3|max:20', 
             "descricao" => 'required',
             "tipo" => 'required',
+            'beat_imagem' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ];
         
             //  if fileType is audio
             if ($this['beat_audio']) {
                 $rules['beat_audio'] = 'nullable|file|mimes:audio/mpeg,mpga,mp3,wav,aac';
             }
+            
             return $rules;
             
     }
