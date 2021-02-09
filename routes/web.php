@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ServicesController;
-use App\Http\Controllers\colaboradoresController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\portfoliosController;
 use App\Http\Controllers\HomeController;
@@ -25,7 +24,6 @@ use App\Http\Controllers\UserController;
 Route::group(['prefix' => 'admin', 'middleware'=>['auth', 'verified']], function () {
     Route::resource('faq', FaqController::class);
     Route::resource('services', ServicesController::class);
-    Route::resource('colaboraodres', FaqController::class);
     Route::resource('portfolios', portfoliosController::class);
     Route::resource('users', UserController::class);
 

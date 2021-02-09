@@ -35,8 +35,8 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-gamepad"></i>
+        <div class="sidebar-brand-icon">
+          <img width="50" height="20" src="/imagens/logo_walhart_pequeno_white.png" alt="logo">
 
         </div>
         <div class="sidebar-brand-text mx-3">Walhart Studio</div>
