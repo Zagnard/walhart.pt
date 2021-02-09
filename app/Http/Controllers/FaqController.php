@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Faq;
 use Illuminate\Http\Request;
-use App\Http\Requests\UpdateFaqRequest;
 use App\Http\Requests\StoreFaqRequest;
 
 class FaqController extends Controller
@@ -52,7 +51,7 @@ class FaqController extends Controller
 				$faq = new Faq();
 				$faq->fill($fields);
 				$faq->save();
-				return redirect()->route('faqs.index')->with('success', 'Faq successfully created');
+				return redirect()->route('faq.index')->with('success', 'Faq successfully created');
     }
 
     /**
@@ -76,7 +75,7 @@ class FaqController extends Controller
     public function edit(Faq $faq)
     {
         //
-				return view('faqs.edit', compact($faq));
+				return view('faqs.edit', compact('faq'));
     }
 
     /**
@@ -86,7 +85,7 @@ class FaqController extends Controller
      * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFaqRequest $request, Faq $faq)
+    public function update(StoreFaqRequest $request, Faq $faq)
     {
         //
 				$fields = $request->validated();
