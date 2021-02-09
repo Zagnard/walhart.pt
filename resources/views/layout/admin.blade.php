@@ -89,7 +89,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosts" aria-expanded="true"
           aria-controls="collapsePosts">
-          <i class="fas fa-fw fa-folder"></i>
+          <i class="fas fa-fw fa-music"></i>
           <span>Beat</span>
         </a>
         <div id="collapsePosts" class="collapse" aria-labelledby="headingPosts" data-parent="#accordionSidebar">
