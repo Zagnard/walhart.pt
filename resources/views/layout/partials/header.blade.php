@@ -22,10 +22,13 @@
             <a class="nav-link" href="{{ route('wl.portfolio')  }}">Portfólio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('wl.faq')  }}">F.a.Q.</a>
+            <a class="nav-link" href="{{ route('contact')  }}">Contatos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('wl.login')  }}">Login</a>
+            <a class="nav-link" href="{{ route('wl.faq')  }}">F.a.Q.</a>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href="{{ route('wl.login') }}">Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('wl.registo')  }}">Registo</a>
@@ -35,7 +38,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('wl.perfil_de_utilizador')  }}">Perfil</a>
-          </li>
+          </li>-->
         </ul>
       </div>
     </div>

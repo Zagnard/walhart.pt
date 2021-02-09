@@ -2,28 +2,30 @@
 
 @section('content')
 
-<div class="container-fluid">
+    <div class="container-fluid">
 
-     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-			Edit Category
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                Edit Service
+            </div>
+            <div class="card-body">
+
+                <form method="POST" action="{{ route('faq.update', $faq) }}" class="form-group">
+									@csrf
+									@method('PUT')
+                    @include('faqs.partials.add-edit')
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success" name="ok">Save</button>
+
+                        <a href="{{route('faq.index')}}" class="btn btn-default">Cancel</a>
+        
         </div>
-        <div class="card-body">
-		
-			<form method="POST" action="#" class="form-group">
-				@include('categories.partials.add-edit')
-				<div class="form-group">
-					<button type="submit" class="btn btn-success" name="ok">Save</button>
 
-					<a href="#" class="btn btn-default">Cancel</a>
-    
-				</div>
-
-			</form>
-			
-		</div>
-	</div>
-</div>
+      </form>
+      
+      </div>
+    </div>
+    </div>
 
 
 @endsection

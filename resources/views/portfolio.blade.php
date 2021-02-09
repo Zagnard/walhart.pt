@@ -46,24 +46,30 @@
 
     <h1 class="text-center mb-5">Beats</h1>
 
+    <p class="font-weight-bold"><a class="text-muted" href="{{ route('contact')  }}">Contata-nos</a> se estás interessado em algum beat<p>
 
+    @if (count($portfolios))
+    @foreach($portfolios as $portfolio)
     <div class="row featurette">
       <div class="col-md-7">
-        <h2 class="featurette-heading">2Pac X Big Type Beat Hip-Hop <span class="text-muted">In the street</span></h2>
-        <p class="lead">100BPM|Chord:A# </p>
+        <h2 class="featurette-heading">{{$portfolio->tipo}} <span class="text-muted">{{$portfolio->nome_beat}}</span></h2>
+        <p class="lead">{{$portfolio->descricao}}</p>
+        @if ($portfolio->beat_audio)
         <audio controls controlsList="nodownload">
-          <source src="./beats/2pac.mp3" type="audio/mpeg">
-        </audio>  
+          <source src="{{Storage::url($portfolio->beat_audio)}}" type="audio/mpeg">
+        </audio>
+        @endif
       </div>
       <div class="col-md-5">
         <!--<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="50" height="50" xmlns="./imagens/pac5c_4x5.jpg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
         -->
-        <img class="img-place" width="300" height="300" src="./imagens/pac5c_4x5.jpg">
+        <img class="img-place" width="300" height="300" src="{{Storage::url($portfolio->beat_imagem)}}">
 
       </div>
     </div>
-
     <hr class="featurette-divider">
+    @endforeach
+    @endif
 
     <!-- /END THE FEATURETTES -->
 

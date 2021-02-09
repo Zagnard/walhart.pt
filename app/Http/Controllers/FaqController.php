@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Faq;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreFaqRequest;
 
 class FaqController extends Controller
 {
@@ -12,6 +13,12 @@ class FaqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+		public function faqs() {
+			$faqs=Faq::all();
+				return view('faq', compact('faqs'));
+		}
+
     public function index()
     {
 				//
@@ -27,6 +34,8 @@ class FaqController extends Controller
     public function create()
     {
         //
+				$faq = new Faq;
+				return view('faqs.add', compact('faq'));
     }
 
     /**
@@ -35,9 +44,14 @@ class FaqController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreFaqRequest $request)
     {
         //
+				$fields = $request->validated();
+				$faq = new Faq();
+				$faq->fill($fields);
+				$faq->save();
+				return redirect()->route('faq.index')->with('success', 'Faq successfully created');
     }
 
     /**
@@ -49,6 +63,7 @@ class FaqController extends Controller
     public function show(Faq $faq)
     {
         //
+				return view('faqs.show', compact('faq'));
     }
 
     /**
@@ -60,6 +75,7 @@ class FaqController extends Controller
     public function edit(Faq $faq)
     {
         //
+				return view('faqs.edit', compact('faq'));
     }
 
     /**
@@ -69,9 +85,13 @@ class FaqController extends Controller
      * @param  \App\Models\Faq  $faq
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Faq $faq)
+    public function update(StoreFaqRequest $request, Faq $faq)
     {
         //
+				$fields = $request->validated();
+				$faq->fill($fields);
+				$faq->save();
+				return redirect()->route('faq.index')->with('success', 'Faq atualizado com sucesso');
     }
 
     /**
@@ -82,6 +102,8 @@ class FaqController extends Controller
      */
     public function destroy(Faq $faq)
     {
-        //
+      //
+			$faq->delete();
+			return redirect()->route('faq.index')->with('sucesso', 'Faq apagacado com sucesso');
     }
 }

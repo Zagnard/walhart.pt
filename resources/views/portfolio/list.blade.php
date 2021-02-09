@@ -21,12 +21,17 @@
               <th>Nome</th>
               <th>Descrição</th>
               <th>Tipo</th>
+              <th>Audio file</th>
+              <th>Imagem file</th>
               <th>Menu</th>
             </tr>
           </thead>
           <tbody>
             @foreach($portfolio as $portfolios)
             <tr>
+              <td>{{$portfolios->nome_beat}}</td>
+              <td>{{$portfolios->descricao}}</td>
+              <td>{{$portfolios->tipo}}</td>
               <td>
                 @if ($portfolios->beat_audio)
                 <audio controls>
@@ -35,10 +40,13 @@
                 </audio>
                 @endif
               </td>
-
-              <td>{{$portfolios->nome_beat}}</td>
-              <td>{{$portfolios->descricao}}</td>
-              <td>{{$portfolios->tipo}}</td>
+              <td>
+                @if ($portfolios->beat_imagem)
+                <img  src="{{Storage::url($portfolios->beat_imagem)}}" class="img-post" alt="Beat
+                 image">
+                @else
+                <img src="{{asset('img/no-image.png')}}" class="img-post" alt="Beat image"> 
+                @endif
               <td nowrap>
                 <a class="btn btn-xs btn-primary btn-p" href="{{route('portfolios.show',$portfolios)}}"><i class="fas fa-eye fa-xs"></i></a>
                 <a class="btn btn-xs btn-warning btn-p" href="{{route('portfolios.edit',$portfolios)}}"><i class="fas fa-pen fa-xs"></i></a>

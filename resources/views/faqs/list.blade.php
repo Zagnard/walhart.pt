@@ -1,74 +1,65 @@
 @extends ("layout.admin")
 
 
-@section('content')
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Categories</h1>
+@section("content")
+<div class="container-fluid">
+  <!-- Page Heading -->
+  <h1 class="h3 mb-2 text-gray-800">F.A.Q.</h1>
 
-
-    <a href="{{ route('faqs.create') }}">       
-        Add Category
-		</a>
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <a class="btn btn-primary" href="{{ route('faq.create') }}">
+        <i class="fas fa-plus"></i> faqs
+      </a>
+    </div>
+    <div class="card-body">
 		@if(count($faqs))
-    <div class="table-responsive">
+      <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>Perguntas</th>
-                    <th>Respostas</th>
-                    <th>Ações</th>
-                </tr>
-						</thead>
-						@foreach($faqs as $faq)
-						<!-- Isto não cria corpos novos? -->
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td>Category about news</td>
-                    <td nowrap>
-                        <a class="btn btn-xs btn-primary btn-p" href="#"><i class="fas fa-eye fa-xs"></i></a>
-                        <a class="btn btn-xs btn-warning btn-p" href="#"><i class="fas fa-pen fa-xs"></i></a>
-                        <form method="POST" action="#" role="form" class="inline">
-                            <button type="submit" class="btn btn-xs btn-danger btn-p"><i
-                                    class="fas fa-trash fa-xs"></i></button>
-                        </form>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Events</td>
-                    <td>Category about events</td>
-                    <td nowrap>
-                        <a class="btn btn-xs btn-primary btn-p" href="#"><i class="fas fa-eye fa-xs"></i></a>
-                        <a class="btn btn-xs btn-warning btn-p" href="#"><i class="fas fa-pen fa-xs"></i></a>
-                        <form method="POST" action="#" role="form" class="inline">
-                            <button type="submit" class="btn btn-xs btn-danger btn-p"><i
-                                    class="fas fa-trash fa-xs"></i></button>
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Answer</th>
+            </tr>
+          </thead>
+          <tbody>
+          @foreach($faqs as $faq)
+            <tr>
+              <td>{{$faq->questions}}</td>
+              <td>{{$faq->answers}}</td>
+              <td nowrap>
+                <a class="btn btn-xs btn-primary btn-p" href="{{ route('faq.show', $faq) }}"><i class="fas fa-eye fa-xs"></i></a>
+                <a class="btn btn-xs btn-warning btn-p" href="{{ route('faq.edit', $faq) }}"><i class="fas fa-pen fa-xs"></i></a>
+                <form method="POST" action="{{ route('faq.destroy', $faq) }}" role="form" class="inline" onsubmit="return confirm('Tem a certeza que quer destruir este faq?')">
+                  @csrf
+                  @method("DELETE")
+                  <button type="submit" class="btn btn-xs btn-danger btn-p"><i class="fas fa-trash fa-xs"></i></button>
+                </form>
+              </td>
+            </tr>
+            @endforeach
+          </tbody>
         </table>
-		</div>
-		@else
-		<h6>Não há faqs registados</h6>
-		@endif
+      </div>
+      @else
+      <h6>Sem faqs registados</h6>
+    @endif
+    </div>
+  </div>
+</div>
 @endsection
 
-@section('moreScripts')
-    <script>
-        $('#dataTable').dataTable({
-            destroy: true,
-            "order": [
-                [0, 'asc']
-            ],
-            "columns": [
-                null,
-                null,
-                {
-                    "orderable": false
-                }
-            ]
-        });
+@section("moreScripts")
+<script>
+  $('#dataTable').dataTable( {
+  destroy: true,
+    "order": [[ 0, 'asc' ]],  
+	"columns": [
+	  null,
+    null,
+    { "orderable": false }
+  ]
+} );
 
-    </script>
+</script>
 @endsection

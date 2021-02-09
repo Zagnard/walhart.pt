@@ -35,8 +35,8 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/admin">
-        <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-gamepad"></i>
+        <div class="sidebar-brand-icon">
+          <img width="50" height="20" src="/imagens/logo_walhart_pequeno_white.png" alt="logo">
 
         </div>
         <div class="sidebar-brand-text mx-3">Walhart Studio</div>
@@ -47,7 +47,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="/admin">
+        <a class="nav-link" href="{{ route('admin') }}">
           <i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard</span></a>
       </li>
 
@@ -61,13 +61,13 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUsers" aria-expanded="true"
           aria-controls="collapseUsers">
           <i class="fas fa-users"></i>
-          <span>Users</span>
+          <span>Faq</span>
         </a>
         <div id="collapseUsers" class="collapse" aria-labelledby="headingUsers" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
 
-            <a class="collapse-item" href="#">List Users</a>
-            <a class="collapse-item" href="#">Add User</a>
+            <a class="collapse-item" href="{{ route('faq.index') }}">List faq</a>
+            <a class="collapse-item" href="{{ route('faq.create') }}">Add faq</a>
           </div>
         </div>
       </li>
@@ -89,7 +89,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePosts" aria-expanded="true"
           aria-controls="collapsePosts">
-          <i class="fas fa-fw fa-folder"></i>
+          <i class="fas fa-fw fa-music"></i>
           <span>Beat</span>
         </a>
         <div id="collapsePosts" class="collapse" aria-labelledby="headingPosts" data-parent="#accordionSidebar">
@@ -132,14 +132,19 @@
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
+							@if(auth()->check())
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-200 small">User name</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-200 small">{{ auth()->user()->name }}</span>
+								@if(auth()->user()->photo==null)
                 <img class="img-profile rounded-circle" alt="Photo User" src="{{asset('img/default_user.jpg')}}">
+								@else
+								<img class="img-profile rounded-circle" alt="Photo User" src="{{storage::disk('public')->url('users_photos/').auth()->user()->photo}}">
+								@endif
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{ route('users.edit', auth()->user()) }}">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
@@ -148,6 +153,13 @@
                   Logout
                 </a>
               </div>
+							@else
+							<a href="{{ route('login') }}">
+								<span class="mr-2 d-none d-lg-inline text-gray-200 small">
+									Login
+								</span>
+							</a>
+							@endif
             </li>
 
           </ul>
@@ -205,7 +217,8 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <form action="#" method="post" class="inline">
+          <form action="{{ route('logout') }}" method="post" class="inline">
+						@csrf
             <button class="btn btn-primary" type="submit">Logout</button>
           </form>
         </div>
