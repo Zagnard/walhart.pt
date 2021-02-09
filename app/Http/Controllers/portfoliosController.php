@@ -35,8 +35,8 @@ class portfoliosController extends Controller
      */
     public function create()
     {
-        $portfolios = new portfolios;
-        return view('portfolio.add', compact("portfolios"));
+        $portfolio = new portfolios;
+        return view('portfolio.add', compact("portfolio"));
     }
 
     /**
@@ -50,16 +50,26 @@ class portfoliosController extends Controller
         $fields = $request->validated();
         $portfolios = new portfolios();
         $portfolios->fill($fields);
-        if($request->hasFile('beat_audio')){
-            $uniqueid=uniqid();
-            $original_name=$request->file('beat_audio')->getClientOriginalName();
-            $size=$request->file('beat_audio')->getSize();
-            $extension=$request->file('beat_audio')->getClientOriginalExtension();
-            $filename=Carbon::now()->format('Ymd').'_'.$uniqueid.'.'.$extension;
-            $path=$request->file('beat_audio')->storeAs('public/upload/files/audio', $filename);
+        if ($request->hasFile('beat_audio')) {
+            $uniqueid = uniqid();
+            $original_name = $request->file('beat_audio')->getClientOriginalName();
+            $size = $request->file('beat_audio')->getSize();
+            $extension = $request->file('beat_audio')->getClientOriginalExtension();
+            $filename = Carbon::now()->format('Ymd') . '_' . $uniqueid . '.' . $extension;
+            $path = $request->file('beat_audio')->storeAs('public/upload/files/audio', $filename);
             $portfolios->beat_audio = $path;
-    }
-            
+        }
+        if ($request->hasFile('beat_imagem')) {
+            $uniqueid = uniqid();
+            $original_name = $request->file('beat_imagem')->getClientOriginalName();
+            $size = $request->file('beat_imagem')->getSize();
+            $extension = $request->file('beat_imagem')->getClientOriginalExtension();
+            $filename = Carbon::now()->format('Ymd') . '_' . $uniqueid . '.' . $extension;
+            $path = $request->file('beat_imagem')->storeAs('public/upload/files/imagens', $filename);
+            $portfolios->beat_imagem = $path;
+        }
+
+
         $portfolios->save();
         return redirect()->route('portfolios.index')->with('success', 'Beat criado com sucesso');
     }
@@ -97,6 +107,24 @@ class portfoliosController extends Controller
     {
         $fields = $request->validated();
         $portfolio->fill($fields);
+        if ($request->hasFile('beat_audio')) {
+            $uniqueid = uniqid();
+            $original_name = $request->file('beat_audio')->getClientOriginalName();
+            $size = $request->file('beat_audio')->getSize();
+            $extension = $request->file('beat_audio')->getClientOriginalExtension();
+            $filename = Carbon::now()->format('Ymd') . '_' . $uniqueid . '.' . $extension;
+            $path = $request->file('beat_audio')->storeAs('public/upload/files/audio', $filename);
+            $portfolio->beat_audio = $path;
+        }
+        if ($request->hasFile('beat_imagem')) {
+            $uniqueid = uniqid();
+            $original_name = $request->file('beat_imagem')->getClientOriginalName();
+            $size = $request->file('beat_imagem')->getSize();
+            $extension = $request->file('beat_imagem')->getClientOriginalExtension();
+            $filename = Carbon::now()->format('Ymd') . '_' . $uniqueid . '.' . $extension;
+            $path = $request->file('beat_imagem')->storeAs('public/upload/files/imagens', $filename);
+            $portfolio->beat_imagem = $path;
+        }
         $portfolio->save();
         return redirect()->route('portfolios.index')->with(
             'success',
@@ -112,11 +140,16 @@ class portfoliosController extends Controller
      */
     public function destroy(portfolios $portfolio)
     {
-        //if ($portfolio->posts()->exists()) {
-        //    return redirect()->route('portfolios.index')->withErrors(
-        //        ['delete' => 'Categoria tem postagens relacionadas']
-        //    );
-        //}
+        if (!empty($portfolio->beat_audio)) 
+        {
+            Storage::url($portfolio->beat_audio);
+        }
+
+        if (!empty($portfolio->beat_imagem)) 
+        {
+            Storage::url($portfolio->beat_imagem);
+        }
+
         $portfolio->delete();
         return redirect()->route('portfolios.index')->with('success', 'Category eliminadas com sucesso');
     }
@@ -126,5 +159,3 @@ class portfoliosController extends Controller
         return view('portfolio', compact('portfolios'));
     }
 }
-
-    
