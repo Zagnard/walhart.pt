@@ -13,7 +13,7 @@
                 <form method="POST" action="{{ route('faq.update', $faq) }}" class="form-group">
 									@csrf
 									@method('PUT')
-                    @include('portfolio.partials.add-edit')
+                    @include('faqs.partials.add-edit')
                     <div class="form-group">
                         <button type="submit" class="btn btn-success" name="ok">Save</button>
 
