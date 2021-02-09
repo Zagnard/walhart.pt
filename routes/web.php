@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\colaboradoresController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\portfoliosController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -31,7 +32,7 @@ Route::group(['prefix' => 'admin', 'middleware'=>['auth', 'verified']], function
 });
 
 Route::group(['prefix' => 'admin'], function(){
-	Auth::routes(['register' => false, 'verify' => true]);
+	Auth::routes([ 'verify' => true]);
 });
 
 
@@ -45,6 +46,8 @@ Route::get("/perfil_de_utilizador", [PageController::class, "perfil_de_utilizado
 Route::get("/front_user_edit", [PageController::class, "front_user_edit"])->name("wl.front_user_edit");
 Route::get("/services", [ServicesController::class, "services"])->name("wl.services");
 Route::get("/portfolio", [portfoliosController::class, "portfolios"])->name("wl.portfolio");
+Route::get('/contact-us',[ContactController::class,'contact'])->name("contact");
+Route::post('/send-message',[ContactController::class,'sendEmail'])->name('contact.send');
 
 
 

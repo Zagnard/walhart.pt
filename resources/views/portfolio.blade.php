@@ -46,6 +46,8 @@
 
     <h1 class="text-center mb-5">Beats</h1>
 
+    <p class="font-weight-bold"><a class="text-muted" href="{{ route('contact')  }}">Contata-nos</a> se estás interessado em algum beat<p>
+
     @if (count($portfolios))
     @foreach($portfolios as $portfolio)
     <div class="row featurette">

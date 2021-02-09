@@ -21,6 +21,7 @@
     @yield("inicio")
     <div class="container">
         @yield("content")
+        <hr>
     </div>
     @include("layout.partials.footer")
     <script src="{{asset('https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')}}"></script>
