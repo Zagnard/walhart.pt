@@ -10,16 +10,16 @@
                 <!-- Cartão 1 -->
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="card-header" id="headingOne">
+                        <div class="card-header" id="headingOne{{ @$faq->id }}">
                             <h5 class="mb-0">
                                 <!-- Pergunta 1, linha 1 -->
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#card1"
+                                <button class="btn btn-link" data-toggle="collapse" data-target="#card{{ @$faq->id }}"
                                     aria-expanded="true" aria-controls="card1">
                                     {{$faq->questions}}
                                 </button>
                             </h5>
                         </div>
-                        <div id="card1" class="collapse" aria-labelledby="headingOne">
+                        <div id="card{{ @$faq->id }}" class="collapse" aria-labelledby="headingOne{{ @$faq->id }}">
                             <!-- Resposta 1, linha 1 -->
                             <div class="card-body">
 															{{$faq->answers}}
