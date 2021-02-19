@@ -17,7 +17,7 @@
 
 				<div class="form-group">
 					<button type="submit" class="btn btn-success" name="ok">Save</button>
-					<a href="{{route('faq.index')}" class="btn btn-default">Cancel</a>
+					<a href="{{route('faq.index')}}" class="btn btn-default">Cancel</a>
 				</div>
 			</form>
 		</div>
