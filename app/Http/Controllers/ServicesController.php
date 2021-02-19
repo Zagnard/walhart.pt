@@ -40,9 +40,9 @@ class ServicesController extends Controller
     public function store(StoreServicesRequest $request)
     {
         $fields=$request->validated();
-        $services=new Services();
-        $services->fill($fields);
-        $services->save();
+        $service=new Services();
+        $service->fill($fields);
+        $service->save();
         return redirect()->route('services.index')->with('success','Serviço criado com sucesso');
     }
 

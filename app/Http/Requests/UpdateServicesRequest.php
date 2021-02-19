@@ -24,7 +24,9 @@ class UpdateServicesRequest extends FormRequest
     public function rules()
     {
         return [
-            "nome"=>'required|min:2|max:100|unique:services,nome|regex:/^[A-ZÀ-úa-z\s]+$/','descricao'=>'required','preco'=>'required'
+            'nome'=>'required|min:2|max:100|unique:services,nome|regex:/^[A-ZÀ-úa-z\s]+$/',
+            'descricao'=>'required',
+            'preco'=>'required'
         ];
     }
     
