@@ -26,8 +26,8 @@ class StoreFaqRequest extends FormRequest
 		//dd($this->faq != null ?$this->faq->id:0);
 		return 
 		[		
-			'questions' => 'required|min:10|max:100|unique:faqs,questions,'. ($this->faq?$this->faq->id:0) .'|regex:/^[a-zA-Z\u00C0-\u00ff0-9_ ]+$/',
-			'answers' => 'required|min:10|max:100|unique:faqs,answers,'. ($this->faq?$this->faq->id:0) .'|regex:/^[a-zA-Z\u00C0-\u00ff0-9_ ]+$/'
+			'questions' => 'required|min:10|max:10000|unique:faqs,questions,'. ($this->faq?$this->faq->id:0) .'^[a-zA-Z00C000ff0-9_ ]+$',
+			'answers' => 'required|min:10|max:10000|unique:faqs,answers,'. ($this->faq?$this->faq->id:0) .'^[a-zA-Z00C000ff0-9_ ]+$'
 		];	
 	}
 	public function messages() 
